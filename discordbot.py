@@ -3,8 +3,8 @@ import os
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
-SEND_CHANNEL = ['SEND_CHANNEL']  # 送信用チャンネル
-ASSAULTLILY_LOG_CHANNEL = ['ASSAULTLILY_LOG'] # レギオンマッチ ログ
+SEND_CHANNEL = os.environ['SEND_CHANNEL']  # 送信用チャンネル
+ASSAULTLILY_LOG_CHANNEL = os.environ['ASSAULTLILY_LOG'] # レギオンマッチ ログ
 
 @bot.event
 # メッセージを受け取った際のイベント
