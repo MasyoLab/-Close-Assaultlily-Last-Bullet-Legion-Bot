@@ -3,5 +3,23 @@ import os
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
+SEND_CHANNEL = ['SEND_CHANNEL']  # 送信用チャンネル
+ASSAULTLILY_LOG_CHANNEL = ['ASSAULTLILY_LOG'] # レギオンマッチ ログ
 
+@bot.event
+# メッセージを受け取った際のイベント
+async def on_message(message):
+
+    # メッセージ送信者がBotだった場合は無視する
+    if message.author.bot:
+        return
+
+    # 送信用チャンネルかを確認
+    if message.channel.id == SEND_CHANNEL:
+        # 送信先チャンネルを設定
+        target_channel = bot.get_channel(ASSAULTLILY_LOG_CHANNEL)
+        # 送信用チャンネルから受け取った内容を送信
+        await target_channel.send(message.content)
+
+# Botの起動とDiscordサーバーへの接続
 bot.run(token)
