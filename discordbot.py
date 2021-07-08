@@ -1,13 +1,14 @@
 from discord.ext import commands
 import os
 import traceback
+from boto.s3.connection import S3Connection
 
 # 接続に必要なオブジェクトを生成
 bot = commands.Bot(command_prefix='/')
 
-token = os.environ['DISCORD_BOT_TOKEN']
-send_channel = os.environ['SEND_CHANNEL']  # 送信用チャンネル
-assaultlily_log_channel = os.environ['ASSAULTLILY_LOG'] # レギオンマッチ ログ
+token = S3Connection(os.environ['DISCORD_BOT_TOKEN'])
+send_channel = S3Connection(os.environ['SEND_CHANNEL'])  # 送信用チャンネル
+assaultlily_log_channel = S3Connection(os.environ['ASSAULTLILY_LOG']) # レギオンマッチ ログ
 
 @bot.event
 # メッセージを受け取った際のイベント
