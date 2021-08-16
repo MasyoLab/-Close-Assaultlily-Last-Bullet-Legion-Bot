@@ -10,19 +10,7 @@ legion_match_log_output = os.environ['LEGION_MATCH_LOG_OUTPUT']
 
 
 @bot.command()
-async def ping(ctx):
-    await ctx.reply("Pong!")
-
-
-@bot.command()
-async def greet(ctx, name):
-    await ctx.reply(f"Hello, `{name}`.")
-
-
-@bot.event
-# メッセージを受け取った際のイベント
-async def on_message(message):
-
+async def ping(message):
     # メッセージ送信者がBotだった場合は無視する
     if message.author.bot:
         return
@@ -34,8 +22,12 @@ async def on_message(message):
         # 送信先チャンネルを設定
         target_channel = bot.get_channel(legion_match_log_output)
         # 送信用チャンネルから受け取った内容を送信
-        await target_channel.send(message.content)
+        await target_channel.send(message.content.replace('/ping', ''))
 
+
+@bot.event
+# メッセージを受け取った際のイベント
+async def on_message(message):
     await bot.process_commands(message)
 
 bot.run(bot_token)
