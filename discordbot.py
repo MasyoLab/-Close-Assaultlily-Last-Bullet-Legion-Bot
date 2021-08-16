@@ -27,4 +27,6 @@ async def on_message(message):
             # 送信用チャンネルから受け取った内容を送信
             await bot.send_message(target_channel, message.content)
 
+    await bot.process_commands(message)
+
 bot.run(bot_token)
