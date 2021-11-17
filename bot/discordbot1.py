@@ -7,7 +7,7 @@ token = os.environ['DISCORD_BOT_TOKEN']
 
 
 async def on_ready():
-    game = bot.Game('Assaultliliyをプレイ中')
+    game = discord.Game('Assaultliliyをプレイ中')
     await bot.change_presence(status=discord.Status.online, activity=game)
 
 
