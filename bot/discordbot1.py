@@ -9,7 +9,7 @@ token = os.environ['DISCORD_BOT_TOKEN']
 @bot.event
 async def on_ready():
     game = discord.Game('Assaultliliy')
-    await bot.change_presence(status=discord.Status.online, activity=game, afk=True)
+    await bot.change_presence(status=discord.Status.online, activity=game)
 
 
 def client_run():
