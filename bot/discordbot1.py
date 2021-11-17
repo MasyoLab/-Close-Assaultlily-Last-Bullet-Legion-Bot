@@ -11,7 +11,7 @@ token = os.environ['DISCORD_BOT_TOKEN']
 
 @bot.event
 async def on_ready():
-    startTime = datetime.datetime(2021, 1, 20)
+    startTime = datetime.timedelta(2021, 1, 20)
     nowTime = datetime.datetime.utcnow() + datetime.timedelta(hours=DIFF_JST_FROM_UTC)
     game = discord.Game(name='Assaultliliy', start=startTime, end=nowTime)
     await bot.change_presence(status=discord.Status.online, activity=game)
