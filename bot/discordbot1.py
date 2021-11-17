@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 import os
+import datetime
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
@@ -8,7 +9,9 @@ token = os.environ['DISCORD_BOT_TOKEN']
 
 @bot.event
 async def on_ready():
-    game = discord.Game('Assaultliliy')
+    startTime = datetime.datetime(2021, 1, 20)
+    endTime = datetime.datetime.now()
+    game = discord.Game(name='Assaultliliy', start=startTime, end=endTime)
     await bot.change_presence(status=discord.Status.online, activity=game)
 
 
