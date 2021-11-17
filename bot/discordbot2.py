@@ -11,7 +11,7 @@ token = os.environ['DISCORD_BOT_TOKEN_2']
 async def on_ready():
     startTime = datetime.datetime(2021, 1, 20)
     endTime = datetime.datetime.now()
-    game = discord.Game('CHARMの妖精', start=startTime, end=endTime)
+    game = discord.Game(name='CHARMの妖精', start=startTime, end=endTime)
     await bot.change_presence(status=discord.Status.online, activity=game)
 
 
