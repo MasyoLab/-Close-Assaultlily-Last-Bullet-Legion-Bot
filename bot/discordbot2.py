@@ -8,7 +8,7 @@ token = os.environ['DISCORD_BOT_TOKEN_2']
 
 async def on_ready():
     game = discord.Game('CHARMの妖精')
-    await bot.change_presence(status=discord.Status.online, activity=game)
+    await bot.change_presence(status=discord.Status.online, activity=game, afk=True)
 
 
 def client_run():
