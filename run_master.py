@@ -9,7 +9,7 @@ def main():
     loop.create_task(bot.discordbot2.async_client_run())
 
     loop.run_forever()
-    loop.close()
+    # loop.close()
 
 
 main()
