@@ -1,2 +1,2 @@
-from discordbot1 import *
-from discordbot2 import *
+from . import discordbot1
+from . import discordbot2
