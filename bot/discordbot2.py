@@ -14,11 +14,6 @@ async def on_ready():
     await client.change_presence(status=discord.Status.online, activity=game)
 
 
-@client.event
-async def on_message(message):
-    await message.channel.send(message.content)
-
-
 def client_run():
     client.run(token)
 
