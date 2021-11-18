@@ -4,8 +4,6 @@ import os
 
 client = discord.Client()
 token = os.environ['DISCORD_BOT_TOKEN_2']
-get_channel_id = os.environ['BOT2_GET_CHANNEL_ID']
-post_channel_id = os.environ['BOT2_POST_CHANNEL_ID']
 
 
 @client.event
@@ -16,6 +14,8 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    get_channel_id = os.environ['BOT2_GET_CHANNEL_ID']
+    post_channel_id = os.environ['BOT2_POST_CHANNEL_ID']
     if message.channel.id == get_channel_id:
         target_channel = client.get_channel(post_channel_id)
         await target_channel.send(message.content)
