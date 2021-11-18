@@ -18,7 +18,7 @@ async def on_ready():
 async def on_message(message: discord.Message):
     if message.author.bot:
         return
-    await message.channel.send("{message}\n,{message.content}")
+    await message.channel.send(message)
 
 
 def client_run():
