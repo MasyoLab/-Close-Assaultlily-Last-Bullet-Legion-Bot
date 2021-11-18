@@ -17,8 +17,9 @@ async def on_ready():
 @bot.event
 async def on_message(message):
     if message.channel.id == get_channel_id:
-        target_channel = bot.get_channel(post_channel_id)
-        await target_channel.send(message.content)
+        channel = bot.get_channel(post_channel_id)
+        if channel:
+            await bot.send_message(channel, message)
 
 
 def client_run():
