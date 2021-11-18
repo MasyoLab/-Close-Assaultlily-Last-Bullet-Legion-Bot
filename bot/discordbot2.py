@@ -14,12 +14,11 @@ async def on_ready():
     await bot.change_presence(status=discord.Status.online, activity=game)
 
 
-@bot.event
-async def on_message(message):
+@bot.command()
+async def on_message(message: discord.Message):
     if message.channel.id == get_channel_id:
-        channel = bot.get_channel(post_channel_id)
-        if channel:
-            await bot.send_message(channel, message)
+        target_channel = bot.get_channel(post_channel_id)
+        await target_channel.send(message.content)
 
 
 def client_run():
