@@ -14,6 +14,13 @@ async def on_ready():
     await client.change_presence(status=discord.Status.online, activity=game)
 
 
+@client.event
+async def on_message(message):
+    if message.channel.id == get_channel_id:
+        target_channel = client.get_channel(post_channel_id)
+        await target_channel.send(message.content)
+
+
 def client_run():
     client.run(token)
 
