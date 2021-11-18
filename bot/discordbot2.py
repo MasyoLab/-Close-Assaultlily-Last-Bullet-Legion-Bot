@@ -2,28 +2,19 @@ import discord
 from discord.ext import commands
 import os
 
-client = discord.Client()
+bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN_2']
-get_channel_id = os.environ['BOT2_GET_CHANNEL_ID']
-post_channel_id = os.environ['BOT2_POST_CHANNEL_ID']
 
 
-@client.event
+@bot.event
 async def on_ready():
     game = discord.Game(name='CHARMの妖精')
-    await client.change_presence(status=discord.Status.online, activity=game)
-
-
-@client.event
-async def on_message(message: discord.Message):
-    if message.author.bot:
-        return
-    await message.channel.send(message)
+    await bot.change_presence(status=discord.Status.online, activity=game)
 
 
 def client_run():
-    client.run(token)
+    bot.run(token)
 
 
 async def async_client_run():
-    await client.start(token)
+    await bot.start(token)
