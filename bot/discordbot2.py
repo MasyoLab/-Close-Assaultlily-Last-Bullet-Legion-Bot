@@ -27,7 +27,7 @@ async def ping2(ctx):
 
 @bot.command()
 async def ping3(ctx: commands.Command):
-    await ctx.send(bot.get_channel(channel1))
+    await ctx.send(bot.fetch_channel(channel1))
 
 
 @bot.command()
