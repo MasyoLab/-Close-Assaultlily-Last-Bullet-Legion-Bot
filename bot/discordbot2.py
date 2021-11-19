@@ -33,7 +33,7 @@ async def ping3(ctx: commands.Command):
 @bot.command()
 async def ping4(ctx):
     target_channel = bot.fetch_channel(channel1)
-    await ctx.send(target_channel.channel.id)
+    await ctx.send(target_channel.id)
 
 
 def client_run():
