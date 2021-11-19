@@ -17,12 +17,12 @@ async def on_ready():
 
 @bot.command()
 async def ping(ctx):
-    await ctx.send(channel1)
+    await ctx.send(ctx)
 
 
 @bot.command()
 async def ping2(ctx):
-    await ctx.send(channel2)
+    await ctx.send(ctx)
 
 
 def client_run():
