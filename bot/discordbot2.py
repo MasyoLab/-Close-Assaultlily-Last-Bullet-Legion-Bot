@@ -5,6 +5,8 @@ import traceback
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN_2']
+channel1 = os.environ['BOT2_GET_CHANNEL_ID']
+channel2 = os.environ['BOT2_POST_CHANNEL_ID']
 
 
 @bot.event
@@ -13,17 +15,14 @@ async def on_ready():
     await bot.change_presence(status=discord.Status.online, activity=game)
 
 
-@bot.event
-async def on_command_error(ctx, error):
-    orig_error = getattr(error, "original", error)
-    error_msg = ''.join(
-        traceback.TracebackException.from_exception(orig_error).format())
-    await ctx.send(error_msg)
+@bot.command()
+async def ping(ctx):
+    await ctx.send(channel1)
 
 
 @bot.command()
-async def ping(ctx):
-    await ctx.send('pong')
+async def ping2(ctx):
+    await ctx.send(channel2)
 
 
 def client_run():
